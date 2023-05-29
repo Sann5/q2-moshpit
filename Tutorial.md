@@ -29,7 +29,7 @@ qiime assembly generate-reads \
   --output-dir reads \
   --verbose
 ```
-Estimated runtime: 15-20 minutes
+Estimated runtime: 30 minutes
 
 ## Metagenome assembly & QC
 ### Assembly
@@ -43,7 +43,7 @@ qiime assembly assemble-megahit \
   --o-contigs contigs.qza \
   --verbose
 ```
-Estimated runtime: 45 minutes
+Estimated runtime: 30-45 minutes
 
 ### Contig QC
 ```shell
@@ -54,7 +54,7 @@ qiime assembly evaluate-contigs \
   --o-visualization contigs.qzv \
   --verbose
 ```
-Estimated runtime: (started 23:17)
+Estimated runtime: 15 minutes
 
 > **Limitations**:
 > - passing custom reference sequences is not yet supported (QUAST will try to identify and fetch those automatically though) - coming soon!
@@ -77,7 +77,7 @@ qiime assembly index-contigs \
   --o-index contigs-index.qza \
   --verbose
 ```
-Estimated runtime: 
+Estimated runtime: 5 minutes
 
 ### Mapping reads to contigs
 Next, we will generate a reads-to-contigs alignment map using the `map-reads-to-contigs` action from 
@@ -91,7 +91,7 @@ qiime assembly map-reads-to-contigs \
   --o-alignment-map reads-to-contigs-aln.qza \
   --verbose
 ```
-Estimated runtime: 
+Estimated runtime: 5 minutes
 
 ### MAG generation
 Finally, we are ready to perform contig binning using MetaBAT2 through the `bin-contigs-metabat` action from 
@@ -105,7 +105,7 @@ qiime moshpit bin-contigs-metabat \
   --o-mags mags.qza \
   --verbose
 ```
-Estimated runtime: 10 minutes
+Estimated runtime: 5-10 minutes
 
 ### MAG quality control
 We can now use the `evaluate-bins` action from [q2-moshpit](https://github.com/bokulich-lab/q2-moshpit) to evaluate 
@@ -128,7 +128,7 @@ qiime checkm evaluate-bins \
   --o-visualization mags.qzv \
   --verbose
 ```
-Estimated runtime: 5 minutes
+Estimated runtime: 30 minutes
 
 ## Taxonomic classification
 > Coming soon!
