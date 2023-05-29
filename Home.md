@@ -5,7 +5,7 @@ This page contains installation instructions for the MOSHPIT project - this is s
 
 ## Components 
 The figure below illustrates actions available (green) and being under development (grey).
-![MOSHPIT components](img/pipeline_overview.png | width=300)
+![MOSHPIT components](img/pipeline_overview.png)
 
 You can find more information about the individual components in the respective repositories:
 
