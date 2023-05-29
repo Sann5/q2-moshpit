@@ -43,12 +43,49 @@ qiime assembly assemble-megahit \
   --o-contigs contigs.qza \
   --verbose
 ```
-Estimated runtime: x minutes
+Estimated runtime: 45 minutes
 
 ### Contig QC
-
+```shell
+qiime assembly evaluate-contigs \
+  --i-contigs contigs.qza \
+  --p-min-contig 1000 \
+  --p-threads 10 \
+  --o-visualization contigs.qzv \
+  --verbose
+```
+Estimated runtime: (started 23:17)
 
 ## Genome binning
+Before we perform the actual binning, we will need to map the reads to the 
+assembled contigs. The resulting alignment map can then be used directly in 
+the binning action.
+
 ### Contig indexing
+We begin by generating a Bowtie2 index of the assembled contigs. This can be 
+achieved by using the `index-contigs` action from the [q2-moshpit](https://github.com/bokulich-lab/q2-moshpit) 
+plugin:
+```shell
+qiime assembly index-contigs \
+  --i-contigs contigs.qza \
+  --p-threads 10 \
+  --p-seed 100 \
+  --o-index contigs-index.qza \
+  --verbose
+```
+Estimated runtime: 
+
 ### Mapping reads to contigs
+Next, we will generate a reads-to-contigs alignment map using the `map-reads-to-contigs` action from [q2-moshpit](https://github.com/bokulich-lab/q2-moshpit):
+```shell
+qiime assembly map-reads-to-contigs \
+  --i-indexed-contigs contigs-index.qza \
+  --i-reads reads/reads.qza \
+  --p-threads 10 \
+  --p-seed 100 \
+  --o-alignment-map reads-to-contigs-aln.qza \
+  --verbose
+```
+Estimated runtime: 
+
 ### MAG generation

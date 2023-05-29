@@ -12,10 +12,15 @@ This page contains installation instructions for the MOSHPIT project - this is s
 
 ## Installation   
 Before you proceed, make sure you have [mamba](https://mamba.readthedocs.io/en/latest/installation.html) available in your base environment. Then, to install all the required components, execute:   
-```
+```shell
 mamba create -yn q2-shotgun \
     -c conda-forge -c bioconda -c https://packages.qiime2.org/qiime2/2023.5/tested -c defaults \
     q2cli q2-assembly q2-moshpit q2-checkm
+```
+There is an issue with QUAST which requires a (hopefully) temporary fix:
+```shell
+conda run -n q2-shotgun \
+    pip install --no-deps --force-reinstall git+https://github.com/misialq/quast.git@issue-230
 ```
 This will create the _q2-shotgun_ QIIME 2 environment, which you can then activate by:   
 ```
