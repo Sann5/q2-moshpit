@@ -67,7 +67,7 @@ the binning action.
 
 ### Contig indexing
 We begin by generating a Bowtie2 index of the assembled contigs. This can be 
-achieved by using the `index-contigs` action from the [q2-moshpit](https://github.com/bokulich-lab/q2-moshpit) 
+achieved by using the `index-contigs` action from the [q2-assembly](https://github.com/bokulich-lab/q2-assembly) 
 plugin:
 ```shell
 qiime assembly index-contigs \
@@ -81,7 +81,7 @@ Estimated runtime: 5 minutes
 
 ### Mapping reads to contigs
 Next, we will generate a reads-to-contigs alignment map using the `map-reads-to-contigs` action from 
-[q2-moshpit](https://github.com/bokulich-lab/q2-moshpit):
+[q2-assembly](https://github.com/bokulich-lab/q2-assembly):
 ```shell
 qiime assembly map-reads-to-contigs \
   --i-indexed-contigs contigs-index.qza \
