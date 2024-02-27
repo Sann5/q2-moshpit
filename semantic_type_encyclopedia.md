@@ -1,86 +1,11 @@
 # Semantic Type Encyclopedia
+## `SampleData`
+Genomic data organized by sample.
+
+- [`SampleData[MAGs]`](./sample_data_mags.md)
+- [`SampleData[Contigs]`](./sample_data_contigs.md)
+
 ## SampleData
-TODO: Description
-
-### Contigs
-Artifact containing contigs, organized as one FASTA file per sample. Contigs are contiguous sequences of DNA that are assembled from overlapping reads.
-
-#### Semantic Type
-```
-SampleData[Contigs]
-```
-
-#### Artifact Format
-```python
-class ContigSequencesDirFmt(model.DirectoryFormat):
-    sequences = model.FileCollection(
-        r'[^\.].+_contigs.(fasta|fa)$',
-        format=DNAFASTAFormat
-    )
-```
-
-#### Expected Folder Structure
-```bash
-data
-├── <sample_id>_contigs.fa
-├── <sample_id>_contigs.fa
-└── <sample_id>_contigs.fa
-```
-
-#### How to obtain a `SampleData[Contigs]`
-See (`moshpit` Tutorial) from full example.
-1. Use reads from experiment or simulate reads from genomes.
-    - command: `qiime assembly generate-reads`
-        - input: `genomes.qza`
-        - output: `reads.qza`
-2. Assemble contigs
-    - command: `qiime assembly assemble-megahit`
-        - input: `reads.qza`
-        - output: `contigs.qza`
-
-### MAGs
-Artifact containing MAGs, organized by sample in folders. Individual MAGs are `DNAFASTAFormat` files. The MANIFEST is a table specifying the relationship MAGs and samples.
-
-#### Semantic Type
-```
-SampleData[MAGs]
-```
-
-#### Artifact Format
-```python
-class MultiMAGSequencesDirFmt(MultiFASTADirectoryFormat):
-    sequences = model.FileCollection(r'.+\.(fa|fasta)$', format=DNAFASTAFormat)
-    manifest = model.File('MANIFEST', format=MultiMAGManifestFormat)
-```
-
-#### Expected Folder Structure
-```bash
-data
-├── MANIFEST
-├── <sample_id>
-│   ├── <mag_id>.fasta
-│   ├── <mag_id>.fasta
-│   └── <mag_id>.fasta
-.
-
-└── <sample_id>
-    ├── <mag_id>.fasta
-    ├── <mag_id>.fasta
-    └── <mag_id>.fasta
-```
-
-#### How to obtain a `SampleData[MAGs]`
-See `moshpit` Tutorial (TODO: link to tutorial) from full example. Alternatively, see (TODO: link to `SampleData[Contigs]`) to see how to obtain `contigs.qza` which is a `SampleData[Contigs]` artifact.
-
-1. Index contigs
-    - command: `qiime assembly index-contigs`
-        - input: `contigs.qza` (`SampleData[Contigs]`)
-        - output: `contigs-index.qza`
-2. Mapping reads to contigs
-    - command: `qiime assembly map-reads-to-contigs`
-        - input: `contigs.qza`, `contigs-index.qza`
-        - output: `mags.qza` (`SampleData[MAGs]`)
-
 ### BLAST6
 TODO: Description
 
