@@ -1,8 +1,8 @@
 # Generate MAGs from Reads
-In this workflow tutorial we will be transforming raw sequencing reads into Metagenome-Assembled Genomes (MAGs) using Qiime. Before you start make sure you have a working virtual environment (instructions available [here](../Home#installation)).
+In this workflow-tutorial we will be transforming raw sequencing reads into Metagenome-Assembled Genomes (MAGs) using Qiime. Before you start make sure you have a working virtual environment (instructions available [here](../Home#installation)).
 
 > Approximate runtime:  ??min  
-(Estimate based on runtime of MacBook Pro with 8 intel cores and 16 RAM)
+> (Estimate based on runtime of MacBook Pro with 8 intel cores and 16 RAM)
 
 ## Simulating Reads
 We will not be using any real data in this tutorial, but instead will simulate a small dataset based on a set of genomes of known origin. However feel free to skip this step if you have some read data you would like to apply this workflow to. Check out [Qiime2 documentation](https://docs.qiime2.org/2024.2/tutorials/importing/#:~:text=files%20is%2033.-,PairedEndFastqManifestPhred64V2,-%C2%B6) to find out how to import your reads into Qiime.

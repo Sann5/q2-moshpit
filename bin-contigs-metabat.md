@@ -1,16 +1,16 @@
 # `bin-contigs-metabat`
 This method uses MetaBAT 2 to bin provided contigs into MAGs. 
 
-> For the full description of the action inputs, outputs and parameters run `qiime moshpit bin-contigs-metabat --help` in the terminal.
+> For the full description of the action's inputs, outputs and parameters run `qiime moshpit bin-contigs-metabat --help` in the terminal.
 
 ## Inputs
-- `contigs`: Contigs to be binned. (format: `SampleData[Contigs]`)
+- `contigs`: Contigs to be binned. (format: [`SampleData[Contigs]`](./sample_data_contigs.md))
 - `alignment-maps` Reads-to-contig alignment maps. (format: `SampleData[AlignmentMap]`)
 
 ## Outputs
-- `mags`: The resulting MAGs. (format: `SampleData[MAGs]`)
+- `mags`: The resulting MAGs. (format: [`SampleData[MAGs]`](./sample_data_mags.md))
 - `contig-map`: Mapping of MAG identifiers to the contig identifiers contained in each MAG. (format: `FeatureMap[MAGtoContigs]`)
-- `unbinned-contigs`: Contigs that were not binned into any MAG. (format: `SampleData[Contigs % Properties('unbinned')]`)
+- `unbinned-contigs`: Contigs that were not binned into any MAG. (format: [`SampleData[Contigs % Properties('unbinned')]`](./sample_data_contigs.md))
 
 
 ## Citation

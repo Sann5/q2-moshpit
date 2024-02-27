@@ -1,4 +1,8 @@
 # Semantic Type Encyclopedia
+"QIIME 2 uses a combination of types and formats to represent: what data means and how to use it." See [Qiime2 Documentation on Semantic Types](https://dev.qiime2.org/latest/storing-data/types/) for more information.
+
+Bellow we list some semantic types that are specially relevant to `q2-moshpit`.
+
 ## `SampleData`
 Genomic data organized by sample.
 
